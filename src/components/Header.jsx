@@ -1,3 +1,4 @@
+// Header.jsx
 import React from 'react';
 
 const Header = () => {
@@ -5,7 +6,7 @@ const Header = () => {
     <header className="bg-black bg-opacity-80 backdrop-blur-md text-white shadow-md fixed top-0 w-full z-50">
       <div className="container mx-auto p-4 flex flex-col items-center">
         <div className="w-full flex justify-between items-center mb-4">
-          <div className="text-3xl font-bold text-blue-90 0">
+          <div className="text-3xl font-bold text-blue-900">
             <a href="/" className="hover:text-blue-300">Furniture Store</a>
           </div>
           <div className="relative flex-1 max-w-lg">
@@ -30,15 +31,17 @@ const Header = () => {
                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" 
               />
             </svg>
-
-
           </div>
           <a href="/login" className="text-gray-300 hover:text-blue-300">Login</a>
+          <a href="/cart" className="relative text-gray-300 hover:text-blue-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="34" height="34">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 1h4l1 6h13v2H9m14 0l-3 9H6l-3-9h20zm-5 9a2 2 0 100 4 2 2 0 000-4zm-8 0a2 2 0 100 4 2 2 0 000-4z"/>
+            </svg>
+            <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs leading-none text-red-100 bg-red-600 rounded-full">3</span>
+          </a>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="34" height="34">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 1h4l1 6h13v2H9m14 0l-3 9H6l-3-9h20zm-5 9a2 2 0 100 4 2 2 0 000-4zm-8 0a2 2 0 100 4 2 2 0 000-4z"/>
           </svg>
-
-            
         </div>
         <nav className="w-full flex justify-left space-x-8">
           <div className="relative group">
@@ -54,9 +57,7 @@ const Header = () => {
           </div>
           <a href="/about" className="text-gray-300 hover:text-blue-300">About</a>
           <a href="/contact" className="text-gray-300 hover:text-blue-300">Contact</a>
-          <a href="/cart" className="relative text-gray-300 hover:text-blue-300">
           
-          </a>
         </nav>
       </div>
     </header>

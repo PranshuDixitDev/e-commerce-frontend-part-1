@@ -1,30 +1,59 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { listProducts } from '../redux/actions/productActions';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import bgImage from '../assets/images/bg-fur.webp';
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const productList = useSelector((state) => state.productList);
-  const { loading, error, products } = productList;
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    dispatch(listProducts());
-  }, [dispatch]);
+  const goToShop = () => {
+    navigate('/shop'); // assumes your shop route is '/shop'
+  };
 
   return (
-    <div>
-      <h1>Home Page</h1>
-      {loading ? (
-        <div>Loading...</div>
-      ) : error ? (
-        <div>{error}</div>
-      ) : (
-        <div>
-          {products.map((product) => (
-            <div key={product._id}>{product.name}</div>
-          ))}
-        </div>
-      )}
+    <div style={{
+      backgroundImage: `url(${bgImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }}>
+      <div style={{
+        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+        backdropFilter: 'blur(2px)',
+        padding: '20px',
+        borderRadius: '10px',
+        maxWidth: '500px',
+        textAlign: 'center',
+        color: 'white',
+        position: 'relative', // Needed to position the button correctly if using z-index
+        zIndex: 2 // Ensure this container is above the background
+      }}>
+        <h1>Welcome to Furniture Store</h1>
+        <p>Discover a new concept of comfort with our innovative and sustainably designed furniture that transforms any space into a sanctuary of style and relaxation.</p>
+        <button
+          onClick={goToShop}
+          style={{
+            padding: '10px 20px',
+            fontSize: '16px',
+            backgroundColor: 'rgba(255, 255, 255, 0.85)',
+            color: 'black',
+            border: '2px solid white',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            transition: 'all 0.3s ease',
+            marginTop: '20px',
+            zIndex: 3
+          }}
+          onMouseOver={({ target }) => target.style.backgroundColor = 'white'}
+          onMouseOut={({ target }) => target.style.backgroundColor = 'rgba(255, 255, 255, 0.85)'}
+        >
+          Explore Our Products
+        </button>
+
+      </div>
     </div>
   );
 };
